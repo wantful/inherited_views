@@ -21,7 +21,7 @@ module InheritedViews
     # 
     # which would then use app/views/my_default_admin_views
     # 
-    class_inheritable_accessor :default_views
+    class_attribute :default_views
     self.default_views = 'inherited_views_default'
     
     # Add our default views to the base path

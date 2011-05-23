@@ -3,7 +3,7 @@ module InheritedViews
     
     def self.included(base)
       base.extend ClassMethods
-      base.class_inheritable_accessor :table_config
+      base.class_attribute :table_config
       base.table_config = {}
       base.send :helper_method, :index_table_columns
     end
@@ -46,7 +46,7 @@ module InheritedViews
       # end
       # 
       def table(*columns)
-        options = columns.extract_options!        
+        options = columns.extract_options!
         
         if options[:except]
           options[:except] = options[:except].is_a?(Array) ? options[:except] : [options[:except]]
